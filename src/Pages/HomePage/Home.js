@@ -4,7 +4,7 @@ import './Home.css';
 
 const Home = () => {
   return (
-    <div className=' grid gap-5 justify-center content-center my-5 '>
+    <div className='center grid gap-5 justify-center content-center my-5'>
       <div className='card w-96  text-primary-content'>
         <Link
           to='/createroom'
