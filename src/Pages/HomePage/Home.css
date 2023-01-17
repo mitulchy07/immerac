@@ -1,3 +1,7 @@
 .center{
     min-height: 70vh;
 }
+.data{
+    min-height: 50vh;
+    min-width: 50vw;
+}

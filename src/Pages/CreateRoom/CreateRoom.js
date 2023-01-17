@@ -1,23 +1,63 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import AudioSystem from '../Component/AudioSystem/AudioSystem';
+import DisplaySystem from '../Component/DisplaySystem/DisplaySystem';
+import LightSystem from '../Component/LightSystem/LightSystem';
+import PeopleAmount from '../Component/PeopleAmount/PeopleAmount';
+import RoomDimention from '../Component/RoomDimention/RoomDimention';
 
 const CreateRoom = () => {
   const [page, setPage] = useState(0);
   const formTitle = [
-    'Number of the people in the room',
     'Set Room Dimention',
+    'Number of People',
     'Set Display System',
     'Set Lighting System',
     'Set Audio System',
   ];
+
+  const pageDisplay = () => {
+    if (page === 0) {
+      return <RoomDimention></RoomDimention>;
+    } else if (page === 1) {
+      return <PeopleAmount></PeopleAmount>;
+    } else if (page === 2) {
+      return <DisplaySystem></DisplaySystem>;
+    } else if (page === 3) {
+      return <LightSystem></LightSystem>;
+    } else if (page === 4) {
+      return <AudioSystem></AudioSystem>;
+    }
+  };
   return (
     <div className='center grid gap-5 justify-center content-center my-5'>
-      <div>
-        <h1 className='text-3xl'>{formTitle[page]}:</h1>
-      </div>
-      <div className='flex gap-5'>
-        <Link className='btn btn-accent'>Prev</Link>
-        <Link className='btn btn-secondary'>Next</Link>
+      <div className='data '>
+        <div>
+          <h1 className='text-7xl'>{formTitle[page]}:</h1>
+        </div>
+        <div>{pageDisplay()}</div>
+        <div className='flex justify-between'>
+          <button
+            disabled={page === 0}
+            onClick={() => {
+              setPage((currentPage) => currentPage - 1);
+            }}
+            className='btn btn-accent'
+          >
+            Prev
+          </button>
+          <button
+            disabled={page === formTitle.length - 1}
+            onClick={() => {
+              setPage((currentPage) => currentPage + 1);
+            }}
+            className='btn btn-secondary'
+          >
+            Next
+          </button>
+        </div>
+        {/* <div>
+          <button className='btn btn-success w-full my-2 hidden'>Save</button>
+        </div> */}
       </div>
     </div>
   );
