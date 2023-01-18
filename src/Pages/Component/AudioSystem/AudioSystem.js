@@ -33,6 +33,26 @@ const AudioSystem = () => {
             </div>
           </div>
         </div>
+        <div>
+          <select className='select select-bordered w-full max-w-xs'>
+            <option disabled selected>
+              How many subwoofers?
+            </option>
+            <option>2</option>
+            <option>4</option>
+            <option>6</option>
+          </select>
+        </div>
+        <div>
+          <select className='select select-bordered w-full max-w-xs'>
+            <option disabled selected>
+              How many speakers?
+            </option>
+            <option>2</option>
+            <option>4</option>
+            <option>6</option>
+          </select>
+        </div>
       </div>
     </div>
   );
