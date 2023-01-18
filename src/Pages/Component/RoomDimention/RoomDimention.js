@@ -3,7 +3,7 @@ import React from 'react';
 const RoomDimention = () => {
   return (
     <div className='my-5 '>
-      <div className='card w-50vw shadow-xl grid justify-center m-5'>
+      <div className='center card w-50vw shadow-xl grid justify-center m-5'>
         <div className='card-body'>
           <div className='form-control'>
             <label className='label'>
