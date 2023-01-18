@@ -11,7 +11,7 @@ const RoomDimention = () => {
             </label>
             <label className='input-group'>
               <input
-                type='text'
+                type='number'
                 placeholder='1'
                 className='input input-bordered'
               />
@@ -26,7 +26,7 @@ const RoomDimention = () => {
             </label>
             <label className='input-group'>
               <input
-                type='text'
+                type='number'
                 placeholder='1'
                 className='input input-bordered'
               />
