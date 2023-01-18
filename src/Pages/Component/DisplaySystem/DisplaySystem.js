@@ -1,30 +1,71 @@
 import React from 'react';
-import tv from '../../../images/tv.png';
-import prjector from '../../../images/projector.png';
+import { GrMonitor } from 'react-icons/gr';
+import { FcVideoProjector } from 'react-icons/fc';
 
 const DisplaySystem = () => {
   return (
-    <div className='center card w-full h-full my-5 shadow-xl '>
+    <div className='center card w-full h-full my-5 shadow-xl grid justify-center '>
       <div className='card-body'>
-        <div className='flex justify-around'>
-          <div>
-            <input
-              type='radio'
-              name='radio-10'
-              className='radio checked:bg-red-500'
-              checked
-            />
-            <img src={tv} alt='' className='w-36' />
+        <div>
+          <select className='select select-bordered w-full max-w-xs'>
+            <option disabled selected>
+              Display Ratio?
+            </option>
+            <option>16:9</option>
+            <option>4:3</option>
+            <option>21:9</option>
+          </select>
+        </div>
+        <div>
+          <select className='select select-bordered w-full max-w-xs'>
+            <option disabled selected>
+              Dimention?
+            </option>
+            <option>2D</option>
+            <option>3D</option>
+          </select>
+        </div>
+
+        <div>
+          <select className='select select-bordered w-full max-w-xs'>
+            <option disabled selected>
+              Distance from projector?
+            </option>
+            <option>5 meters</option>
+            <option>10 meters</option>
+            <option>15 meters</option>
+          </select>
+        </div>
+        <div className='flex'>
+          <div className='flex m-2'>
+            <div>
+              <input type='radio' name='radio-1' className='radio' checked />
+            </div>
+            <div className='flex'>
+              <div className='m-1'>
+                <GrMonitor />
+              </div>
+              <div>
+                <span>Television</span>
+              </div>
+            </div>
           </div>
-          <div>
-            <input
-              type='radio'
-              name='radio-10'
-              className='radio checked:bg-red-500'
-            />
-            <img src={prjector} alt='' className='w-36' />
+          <div className='flex m-2'>
+            <div>
+              <input type='radio' name='radio-1' className='radio' />
+            </div>
+            <div className='flex'>
+              <div className='m-1'>
+                <FcVideoProjector />
+              </div>
+              <div>
+                <span>Projector</span>
+              </div>
+            </div>
           </div>
         </div>
+
+        <div></div>
       </div>
     </div>
   );
