@@ -56,40 +56,7 @@ const DisplaySystem = ({ formData, setFormData }) => {
             <option>15 meters</option>
           </select>
         </div> */}
-        <label className='label'>
-          <span className='label-text'>
-            Distance from the television or projector?
-          </span>
-        </label>
-        <label className='input-group'>
-          <input
-            type='text'
-            placeholder='1'
-            className='input input-bordered'
-            onChange={(event) =>
-              setFormData({ ...formData, distance: event.target.value })
-            }
-            value={
-              formData.distance > 0
-                ? formData.distance
-                : () => {
-                    window.alart('Please enter a positive value');
-                  }
-            }
-          />
-          <span>Meters</span>
-        </label>
-        <div className='text-rose-800'>
-          <p
-            className={
-              parseInt(formData.distance) < parseInt(formData.length)
-                ? 'hidden'
-                : ''
-            }
-          >
-            cannot be more than the length of the room.
-          </p>
-        </div>
+
         <div className='flex'>
           <div className='flex m-2'>
             <div>
@@ -132,8 +99,42 @@ const DisplaySystem = ({ formData, setFormData }) => {
             </div>
           </div>
         </div>
-
-        <div></div>
+        <div className={formData.displayDevice === 'projector' ? '' : 'hidden'}>
+          <label className='label'>
+            <span className='label-text'>
+              Distance from the television or projector?
+            </span>
+          </label>
+          <label className='input-group'>
+            <input
+              type='text'
+              placeholder='1'
+              className='input input-bordered'
+              onChange={(event) =>
+                setFormData({ ...formData, distance: event.target.value })
+              }
+              value={
+                formData.distance > 0
+                  ? formData.distance
+                  : () => {
+                      window.alart('Please enter a positive value');
+                    }
+              }
+            />
+            <span>Meters</span>
+          </label>
+          <div className='text-rose-800'>
+            <p
+              className={
+                parseInt(formData.distance) < parseInt(formData.length)
+                  ? 'hidden'
+                  : ''
+              }
+            >
+              cannot be more than the length of the room.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );
