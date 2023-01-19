@@ -53,6 +53,9 @@ const AudioSystem = ({ formData, setFormData, handleSubmit, exportData }) => {
             </div>
           </div>
         </div>
+        <div className={formData.audioDevice === 'speaker' ? 'hidden' : ''}>
+          <p>Headphones needed for {formData.pAmount} people.</p>
+        </div>
         <div>
           <select
             className='select select-bordered w-full max-w-xs'
