@@ -1,6 +1,7 @@
 import React from 'react';
 
 const PeopleAmount = ({ formData, setFormData }) => {
+  const numberOfPeople = formData.height * formData.width;
   return (
     <div className='my-5 '>
       <div className='center card w-50vw shadow-xl grid justify-center m-5'>
@@ -29,6 +30,15 @@ const PeopleAmount = ({ formData, setFormData }) => {
               />
               <span>People</span>
             </label>
+            <div>
+              <p
+                className={
+                  formData.pAmount > numberOfPeople ? 'text-rose-800' : ''
+                }
+              >
+                Suggested number {numberOfPeople} Peoples
+              </p>
+            </div>
           </div>
         </div>
       </div>
