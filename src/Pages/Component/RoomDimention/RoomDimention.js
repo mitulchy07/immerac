@@ -1,17 +1,11 @@
 import React, { useState } from 'react';
 
-const RoomDimention = () => {
-  const [message, setMessage] = useState('');
-  const handleChange = (event) => {
-    // const result = event.target.value.replace(/[-]/, '');
-    const re = /^[0-9\b]+$/;
-
-    // setMessage(result);
-    if (event.target.value === '' || re.test(event.target.value)) {
-      setMessage(event.target.value);
-    }
-  };
-
+const RoomDimention = ({ formData, setFormData }) => {
+  //   const [message, setMessage] = useState('');
+  //   const handleChange = (event) => {
+  //     setMessage(event.target.value);
+  //   };
+  //   console.log(formData);
   return (
     <div className='my-5 '>
       <div className='center card w-50vw shadow-xl grid justify-center m-5'>
@@ -26,12 +20,26 @@ const RoomDimention = () => {
                 placeholder='1'
                 min={0}
                 className='input input-bordered field'
-                onChange={handleChange}
-                value={message}
+                defaultValue={1}
+                value={
+                  formData.height > 0
+                    ? formData.height
+                    : () => {
+                        window.alart('Please enter a positive value');
+                      }
+                }
+                onChange={(event) =>
+                  setFormData({ ...formData, height: event.target.value })
+                }
               />
               <span>meter</span>
-              {/* {message <= 0 ? <p>Please enter a positive number</p> : ''} */}
             </label>
+            {/* <div>
+              {formData.height <= 0
+                ? // <p className='text-rose-800'>Please enter a positive number</p>
+                  alarm
+                : ''}
+            </div> */}
           </div>
         </div>
         <div className='card-body'>
@@ -45,10 +53,26 @@ const RoomDimention = () => {
                 placeholder='1'
                 min={0}
                 className='input input-bordered'
-                value="{path: '/value', type: 'sap.ui.model.type.Integer', constraints:{minimum:0}}"
+                value={
+                  formData.width > 0
+                    ? formData.width
+                    : () => {
+                        window.alart('Please enter a positive value');
+                      }
+                }
+                onChange={(event) =>
+                  setFormData({ ...formData, width: event.target.value })
+                }
               />
               <span>meter</span>
             </label>
+            {/* <div>
+              {message <= 0 ? (
+                <p className='text-rose-800'>Please enter a positive number</p>
+              ) : (
+                ''
+              )}
+            </div> */}
           </div>
         </div>
         <div className='card-body'>
@@ -62,7 +86,16 @@ const RoomDimention = () => {
                 placeholder='1'
                 min={0}
                 className='input input-bordered'
-                value="{path: '/value', type: 'sap.ui.model.type.Integer', constraints:{minimum:0}}"
+                value={
+                  formData.length > 0
+                    ? formData.length
+                    : () => {
+                        window.alart('Please enter a positive value');
+                      }
+                }
+                onChange={(event) =>
+                  setFormData({ ...formData, length: event.target.value })
+                }
               />
               <span>meter</span>
             </label>

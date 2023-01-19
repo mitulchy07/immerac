@@ -14,18 +14,62 @@ const CreateRoom = () => {
     'Set Lighting System',
     'Set Audio System',
   ];
+  const [formData, setFormData] = useState({
+    height: '',
+    whidth: '',
+    length: '',
+    pAmount: '',
+    ratio: '',
+    dimention: '',
+    distance: '',
+    television: true,
+    projector: false,
+    frontLight: '',
+    backLight: '',
+    rightLight: '',
+    leftLight: '',
+    headphones: true,
+    speaker: false,
+    subwoofers: '',
+    speakers: '',
+  });
 
   const pageDisplay = () => {
     if (page === 0) {
-      return <RoomDimention></RoomDimention>;
+      return (
+        <RoomDimention
+          formData={formData}
+          setFormData={setFormData}
+        ></RoomDimention>
+      );
     } else if (page === 1) {
-      return <PeopleAmount></PeopleAmount>;
+      return (
+        <PeopleAmount
+          formData={formData}
+          setFormData={setFormData}
+        ></PeopleAmount>
+      );
     } else if (page === 2) {
-      return <DisplaySystem></DisplaySystem>;
+      return (
+        <DisplaySystem
+          formData={formData}
+          setFormData={setFormData}
+        ></DisplaySystem>
+      );
     } else if (page === 3) {
-      return <LightSystem></LightSystem>;
+      return (
+        <LightSystem
+          formData={formData}
+          setFormData={setFormData}
+        ></LightSystem>
+      );
     } else if (page === 4) {
-      return <AudioSystem></AudioSystem>;
+      return (
+        <AudioSystem
+          formData={formData}
+          setFormData={setFormData}
+        ></AudioSystem>
+      );
     }
   };
   return (
