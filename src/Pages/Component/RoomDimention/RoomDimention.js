@@ -16,20 +16,18 @@ const RoomDimention = ({ formData, setFormData }) => {
             </label>
             <label className='input-group'>
               <input
-                type='number'
+                type='text'
                 placeholder='1'
-                min={0}
                 className='input input-bordered field'
-                defaultValue={1}
+                onChange={(event) =>
+                  setFormData({ ...formData, height: event.target.value })
+                }
                 value={
                   formData.height > 0
                     ? formData.height
                     : () => {
                         window.alart('Please enter a positive value');
                       }
-                }
-                onChange={(event) =>
-                  setFormData({ ...formData, height: event.target.value })
                 }
               />
               <span>meter</span>
@@ -49,7 +47,7 @@ const RoomDimention = ({ formData, setFormData }) => {
             </label>
             <label className='input-group'>
               <input
-                type='number'
+                type='text'
                 placeholder='1'
                 min={0}
                 className='input input-bordered'
@@ -82,7 +80,7 @@ const RoomDimention = ({ formData, setFormData }) => {
             </label>
             <label className='input-group'>
               <input
-                type='number'
+                type='text'
                 placeholder='1'
                 min={0}
                 className='input input-bordered'
