@@ -1,6 +1,6 @@
 import React from 'react';
 
-const LightSystem = () => {
+const LightSystem = ({ formData, setFormData }) => {
   return (
     <div className='my-5 '>
       <div className='center card w-50vw shadow-xl grid justify-center m-5'>
@@ -14,6 +14,16 @@ const LightSystem = () => {
                 type='text'
                 placeholder='1'
                 className='input input-bordered'
+                onChange={(event) =>
+                  setFormData({ ...formData, frontLight: event.target.value })
+                }
+                value={
+                  formData.frontLight > 0
+                    ? formData.frontLight
+                    : () => {
+                        window.alart('Please enter a positive value');
+                      }
+                }
               />
               <span>lights</span>
             </label>
@@ -29,6 +39,16 @@ const LightSystem = () => {
                 type='text'
                 placeholder='1'
                 className='input input-bordered'
+                onChange={(event) =>
+                  setFormData({ ...formData, backLight: event.target.value })
+                }
+                value={
+                  formData.backLight > 0
+                    ? formData.backLight
+                    : () => {
+                        window.alart('Please enter a positive value');
+                      }
+                }
               />
               <span>lights</span>
             </label>
@@ -46,6 +66,16 @@ const LightSystem = () => {
                 type='text'
                 placeholder='1'
                 className='input input-bordered'
+                onChange={(event) =>
+                  setFormData({ ...formData, rightLight: event.target.value })
+                }
+                value={
+                  formData.rightLight > 0
+                    ? formData.rightLight
+                    : () => {
+                        window.alart('Please enter a positive value');
+                      }
+                }
               />
               <span>lights</span>
             </label>
@@ -63,6 +93,16 @@ const LightSystem = () => {
                 type='text'
                 placeholder='1'
                 className='input input-bordered'
+                onChange={(event) =>
+                  setFormData({ ...formData, leftLight: event.target.value })
+                }
+                value={
+                  formData.leftLight > 0
+                    ? formData.leftLight
+                    : () => {
+                        window.alart('Please enter a positive value');
+                      }
+                }
               />
               <span>lights</span>
             </label>
