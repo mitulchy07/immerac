@@ -3,11 +3,13 @@ import AudioSystem from '../Component/AudioSystem/AudioSystem';
 import DisplaySystem from '../Component/DisplaySystem/DisplaySystem';
 import LightSystem from '../Component/LightSystem/LightSystem';
 import PeopleAmount from '../Component/PeopleAmount/PeopleAmount';
+import ProjectName from '../Component/ProjectName/ProjectName';
 import RoomDimention from '../Component/RoomDimention/RoomDimention';
 
 const CreateRoom = () => {
   const [page, setPage] = useState(0);
   const formTitle = [
+    'Set Project Name',
     'Set Room Dimention',
     'Number of People',
     'Set Display System',
@@ -15,6 +17,7 @@ const CreateRoom = () => {
     'Set Audio System',
   ];
   const [formData, setFormData] = useState({
+    projectName: '',
     height: '',
     width: '',
     length: '',
@@ -48,33 +51,40 @@ const CreateRoom = () => {
   const pageDisplay = () => {
     if (page === 0) {
       return (
+        <ProjectName
+          formData={formData}
+          setFormData={setFormData}
+        ></ProjectName>
+      );
+    } else if (page === 1) {
+      return (
         <RoomDimention
           formData={formData}
           setFormData={setFormData}
         ></RoomDimention>
       );
-    } else if (page === 1) {
+    } else if (page === 2) {
       return (
         <PeopleAmount
           formData={formData}
           setFormData={setFormData}
         ></PeopleAmount>
       );
-    } else if (page === 2) {
+    } else if (page === 3) {
       return (
         <DisplaySystem
           formData={formData}
           setFormData={setFormData}
         ></DisplaySystem>
       );
-    } else if (page === 3) {
+    } else if (page === 4) {
       return (
         <LightSystem
           formData={formData}
           setFormData={setFormData}
         ></LightSystem>
       );
-    } else if (page === 4) {
+    } else if (page === 5) {
       return (
         <AudioSystem
           formData={formData}

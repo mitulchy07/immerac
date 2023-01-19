@@ -20,17 +20,9 @@ const DisplaySystem = ({ formData, setFormData }) => {
             onChange={(event) =>
               setFormData({ ...formData, ratio: event.target.value })
             }
-            value={
-              formData.ratio > 0
-                ? formData.ratio
-                : () => {
-                    window.alart('Please enter a positive value');
-                  }
-            }
+            value={formData.ratio}
           >
-            <option disabled selected>
-              Display Ratio?
-            </option>
+            <option selected>Display Ratio?</option>
             <option>16:9</option>
             <option>4:3</option>
             <option>21:9</option>
@@ -42,17 +34,9 @@ const DisplaySystem = ({ formData, setFormData }) => {
             onChange={(event) =>
               setFormData({ ...formData, dimention: event.target.value })
             }
-            value={
-              formData.dimention > 0
-                ? formData.dimention
-                : () => {
-                    window.alart('Please enter a positive value');
-                  }
-            }
+            value={formData.dimention}
           >
-            <option disabled selected>
-              Dimention?
-            </option>
+            <option selected>Dimention?</option>
             <option>2D</option>
             <option>3D</option>
           </select>
@@ -64,17 +48,9 @@ const DisplaySystem = ({ formData, setFormData }) => {
             onChange={(event) =>
               setFormData({ ...formData, distance: event.target.value })
             }
-            value={
-              formData.distance > 0
-                ? formData.distance
-                : () => {
-                    window.alart('Please enter a positive value');
-                  }
-            }
+            value={formData.distance}
           >
-            <option disabled selected>
-              Distance from projector?
-            </option>
+            <option>Distance from projector?</option>
             <option>5 meters</option>
             <option>10 meters</option>
             <option>15 meters</option>
