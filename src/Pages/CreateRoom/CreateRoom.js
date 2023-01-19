@@ -16,7 +16,7 @@ const CreateRoom = () => {
   ];
   const [formData, setFormData] = useState({
     height: '',
-    whidth: '',
+    width: '',
     length: '',
     pAmount: '',
     ratio: '',
@@ -31,6 +31,19 @@ const CreateRoom = () => {
     subwoofers: '',
     speakers: '',
   });
+  const exportData = () => {
+    const jsonString = `data:text/json;chatset=utf-8,${encodeURIComponent(
+      JSON.stringify(formData)
+    )}`;
+    const link = document.createElement('a');
+    link.href = jsonString;
+    link.download = 'data.json';
+
+    link.click();
+  };
+  const handleSubmit = () => {
+    console.log(formData);
+  };
 
   const pageDisplay = () => {
     if (page === 0) {
@@ -66,6 +79,8 @@ const CreateRoom = () => {
         <AudioSystem
           formData={formData}
           setFormData={setFormData}
+          handleSubmit={handleSubmit}
+          exportData={exportData}
         ></AudioSystem>
       );
     }

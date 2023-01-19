@@ -1,7 +1,7 @@
 import React from 'react';
 import { BiHeadphone } from 'react-icons/bi';
 import { BsFillSpeakerFill } from 'react-icons/bs';
-const AudioSystem = ({ formData, setFormData }) => {
+const AudioSystem = ({ formData, setFormData, handleSubmit, exportData }) => {
   const getAudioDevice = (event) => {
     const target = event.target;
     const name = target.name;
@@ -67,9 +67,7 @@ const AudioSystem = ({ formData, setFormData }) => {
                   }
             }
           >
-            <option disabled selected>
-              How many subwoofers?
-            </option>
+            <option selected>How many subwoofers?</option>
             <option>2</option>
             <option>4</option>
             <option>6</option>
@@ -89,14 +87,15 @@ const AudioSystem = ({ formData, setFormData }) => {
                   }
             }
           >
-            <option disabled selected>
-              How many speakers?
-            </option>
+            <option selected>How many speakers?</option>
             <option>2</option>
             <option>4</option>
             <option>6</option>
           </select>
         </div>
+        <button className='btn btn-success' onClick={exportData}>
+          Save
+        </button>
       </div>
     </div>
   );
